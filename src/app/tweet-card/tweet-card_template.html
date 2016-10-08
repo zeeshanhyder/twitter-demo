@@ -1,0 +1,31 @@
+<div class="card tweet-card">
+  <div class="margin-r-20 button button--rounded profile--img"></div>
+  <div class="flex layout-column flex-rem">
+    <div class="flex layout-row layout-align-space-between-center">
+      <h4 class="flex flex-rem margin-0">{{$ctrl.tweet.name}} <span class="tweet-user">@{{$ctrl.tweet.user}}</span> </h4>
+      <span class="tweet-moment">{{$ctrl.tweet.when}}</span>
+    </div>
+    <div class="tweet-content" ng-bind-html="$ctrl.deliberatelyTrustDangerousSnippet()">
+    </div>
+    <div class="flex layout-row tweet-menu margin-t-10">
+      <div class="tweet-card-menu--icons flex layout-row flex-rem layout-align-start-center">
+        <div>
+          <i class="fa fa-mail-forward button"></i>
+        </div>
+        <div>
+          <i class="fa fa-star button"></i>
+        </div>
+        <div>
+          <i class="fa fa-retweet button"></i>
+          <span>{{$ctrl.tweet.retweets}}</span>
+        </div>
+        <div>
+          <i class="fa fa-ellipsis-h button"></i>
+        </div>
+      </div>
+      <div>
+        <i class="fa fa-expand button"></i>
+      </div>
+
+  </div>
+</div>

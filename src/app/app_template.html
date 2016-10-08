@@ -1,2 +1,31 @@
-<app-header></app-header>
-<p> Hello {{$ctrl.name}}! </p>
+<div class="main flex layout-column">
+  <app-header></app-header>
+  <div class="container">
+
+      <div class="card profile-stats profile-stats--container">
+        <div class="profile-stats--stat stat--active">
+          <p>TWEETS</p>
+          <span>148</span>
+        </div>
+
+        <div class="profile-stats--stat">
+          <p>PHOTOS/VIDEOS</p>
+          <span>265</span>
+        </div>
+
+        <div class="profile-stats--stat">
+          <p>FOLLOWING</p>
+          <span>348</span>
+        </div>
+
+        <div class="profile-stats--stat">
+          <p>FOLLOWERS</p>
+          <span>1M</span>
+        </div>
+      </div>
+
+        <div ng-repeat="tweet in $ctrl.tweets">
+          <tweet-card tweet="tweet"></tweet-card>
+        </div>
+  </div>
+</div>

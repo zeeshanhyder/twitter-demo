@@ -39,34 +39,45 @@
 	align-content:space-between;
 }
 
+.block--center{
+	margin:0 auto;
+}
+
 .pad-0{
 	padding: 0;
 }
 .pad-l-10{
-	padding-left:10px;
+	padding-left:0.625em;
 }
 .pad-lr-10{
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 0.625em;
+	padding-right: 0.625em;
 }
 .pad-r-10{
-	padding-right: 10px;
+	padding-right: 0.625em;
 }
 .pad-box-10{
-	padding: 10px;
+	padding: 0.625em;
 }
 .pad-box-20{
 	padding:20px;
+}
+.pad-td-20{
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 .margin-0{
 	margin:0;
 }
 .margin-l-10{
-	margin-left:10px;
+	margin-left:0.625em;
+}
+.margin-l-20{
+	margin-left:20px;
 }
 .margin-lr-10{
-	margin-left:10px;
-	margin-right:10px;
+	margin-left:0.625em;
+	margin-right:0.625em;
 }
 .margin-lr-20{
 	margin-left:20px;
@@ -74,24 +85,34 @@
 }
 
 .margin-r-10{
-	margin-right:10px;
+	margin-right:0.625em;
+}
+.margin-r-20{
+	margin-right:20px;
 }
 .margin-d-10{
-	margin-bottom:10px;
+	margin-bottom:0.625em;
+}
+.margin-t-20{
+	margin-top:20px;
 }
 .margin-td-10{
-	margin-top:10px;
-	margin-bottom:10px;
+	margin-top:0.625em;
+	margin-bottom:0.625em;
+}
+.margin-td-20{
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 $color-white: #fff;
-$color-grey: #f5f5f5;
-$color-border: #d8d8d8;
+$color-grey: #f5f8fa;
+$color-border: rgba(0,0,0,0.1);
 
 $text-color-1: rgba(0,0,0,0.85);
 $text-color-2: rgba(0,0,0,0.65);
-$text-color-3: rgba(0,0,0,0.45);
+$text-color-3: rgba(0,0,0,0.35);
 
-$theme-blue: #0084b4;
+$theme-blue: #55acee;
 
 .background-color-white{
   background-color: $color-white;
@@ -126,6 +147,10 @@ html, body{
 }
 body{
   @extend .flex,.background-color-grey;
+	font-family:"Lato", "Helvetica Neue","Open Sans", Arial, sans-serif;
+}
+p{
+	color: $text-color-2;
 }
 
 
@@ -145,6 +170,14 @@ body{
   @extend .border-right;
 }
 
+.menu--mobile{
+	display: none;
+	padding: 0;
+	div{
+		padding: 0.625em;
+		color:$text-color-2;
+	}
+}
 .menu--active{
 	@extend .border-bottom;
 	border-bottom-color: $theme-blue;
@@ -153,8 +186,8 @@ body{
 .button-container{
   height:100%;
   @extend .flex, .layout-align-start-center;
-  padding-left:15px;
-  padding-right: 15px;
+  padding-left:0.9375em;
+  padding-right: 0.9375em;
 }
 .button{
   cursor: pointer;
@@ -162,23 +195,24 @@ body{
 .button--rounded{
   height:35px;
   width:35px;
+	min-width: 35px;
   @extend .border-box;
   border-radius: 50%;
   text-align: center;
   line-height: 35px;
-  font-size: 14px;
+  font-size: 0.875em;
 }
 .button--active{
   background-color: $theme-blue;
   color: $color-white;
-  border-color: inherit;
+  border-color: $theme-blue;
 }
 .logo{
   background:url('app/assets/logo.png');
   width: 28px;
   height: 28px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0.625em;
+  margin-right: 0.625em;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -188,28 +222,138 @@ body{
 	&:after{
 		position: absolute;
 		content: '\f002';
-		height: 14px;
-		width: 14px;
+		height: 0.875em;
+		width: 0.875em;
 		display: inline-block;
-		font: normal normal normal 14px/1 FontAwesome;
+		font: normal normal normal 0.875em/1 FontAwesome;
 		font-size: inherit;
 		text-rendering: auto;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		line-height: 35px;
-		right:15px;
+		right:0.9375em;
 		bottom:23px;
 		color: $text-color-3;
 	}
 	.input--search{
 		@extend .border-box,.pad-l-10;
-		padding-right: 30px;
+		padding-right: 1.875em;
 		border-radius: 20px;
 		height: 33px;
 		width: 150px;
 		outline: none;
 		color: $text-color-2;
-		font-size: 14px;
+		font-size: 0.875em;
 	}
 
+}
+
+/*************Header End *********/
+
+.container{
+	@extend .flex, .flex, .flex-rem, .layout-column, .block--center;
+	width: 50%;
+}
+.card{
+	@extend .background-color-white, .pad-box-20, .flex, .layout-row;
+  box-shadow: 0 0 0 1px rgba(0,1,0,0.05);
+}
+.tweet-card{
+	h4{
+		color:$text-color-1;
+	}
+}
+.profile--img{
+	background: url('app/assets/profile-img.png');
+	background-position: center;
+}
+.profile-stats{
+	@extend .flex, .layout-row, .pad-box-10,.margin-td-20;
+	padding:0;
+	p{
+		margin:0;
+	}
+	span{
+		font-weight: bolder;
+	}
+}
+.profile-stats--container{
+	min-height: 72px;
+}
+.profile-stats--stat{
+	@extend .flex, .layout-column, .flex-rem, .layout-align-center-center,.button;
+	padding:0.9375em;
+	font-size: 90%;
+	height: inherit;
+}
+.stat--active{
+	@extend .border-bottom;
+	border-width: 4px;
+	border-color: $theme-blue;
+}
+.tweet-menu{
+	span,i{
+		color:$text-color-3;
+	}
+	div{
+		@extend .margin-r-20;
+	}
+}
+.tweet-content{
+	margin:8px 0;
+	p{
+		margin:0;
+	}
+}
+.tweet-user,.tweet-moment{
+	color: $text-color-3;
+	font-weight: 400;
+	padding-left: 5px;
+}
+
+
+/**** Responsive ***/
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+
+	.container{
+		width: 98%;
+	}
+	.main-menu--container{
+		display:none;
+	}
+	.main-search{
+		flex-grow: 1;
+	}
+	.menu--mobile{
+		display: flex;
+	}
+
+
+
+}
+
+
+@media (min-width:600px) and (max-width:799px)  {
+
+	.container{
+		width: 85%;
+	}
+
+ }
+@media (min-width:801px) and (max-width: 992px) {
+
+	.container{
+		width: 85%;
+	}
+
+ }
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+	.container{
+		width:98%;
+	}
 }
