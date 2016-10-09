@@ -263,6 +263,10 @@ p{
 	h4{
 		color:$text-color-1;
 	}
+	overflow-x: hidden;
+}
+.tweet-card-content--container{
+	max-width: 90%;
 }
 .profile--img{
 	background: url('assets/profile-img.png');
@@ -304,6 +308,8 @@ p{
 	margin:8px 0;
 	p{
 		margin:0;
+		margin-bottom: 5px;
+		line-height: 1.2;
 	}
 }
 .tweet-user,.tweet-moment{
@@ -331,6 +337,11 @@ p{
 	}
 	.menu--mobile{
 		display: flex;
+	}
+
+	.logo--container{
+		align-items: flex-start;
+    justify-content: flex-start;
 	}
 
 

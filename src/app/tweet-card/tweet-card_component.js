@@ -5,7 +5,7 @@ function TweetCardController($sce){
 
   var vm = this;
 
-  vm.deliberatelyTrustDangerousSnippet = function() {
+  vm.sanitizedHTML = function() {
     return $sce.trustAsHtml(vm.tweet.content);
   }
 

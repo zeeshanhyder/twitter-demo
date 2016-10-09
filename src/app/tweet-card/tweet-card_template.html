@@ -1,11 +1,11 @@
 <div class="card tweet-card">
   <div class="margin-r-20 button button--rounded profile--img"></div>
-  <div class="flex layout-column flex-rem">
+  <div class="flex layout-column flex-rem tweet-card-content--container">
     <div class="flex layout-row layout-align-space-between-center">
       <h4 class="flex flex-rem margin-0">{{$ctrl.tweet.name}} <span class="tweet-user">@{{$ctrl.tweet.user}}</span> </h4>
       <span class="tweet-moment">{{$ctrl.tweet.when}}</span>
     </div>
-    <div class="tweet-content" ng-bind-html="$ctrl.deliberatelyTrustDangerousSnippet()">
+    <div class="tweet-content" ng-bind-html="$ctrl.sanitizedHTML()">
     </div>
     <div class="flex layout-row tweet-menu margin-t-10">
       <div class="tweet-card-menu--icons flex layout-row flex-rem layout-align-start-center">
