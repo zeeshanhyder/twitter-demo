@@ -24,8 +24,8 @@
         </div>
       </div>
 
-        <div ng-repeat="tweet in $ctrl.tweets">
-          <tweet-card tweet="tweet"></tweet-card>
+        <div>
+          <tweet-card ng-repeat="tweet in $ctrl.tweets" tweet="tweet"></tweet-card>
         </div>
   </div>
 </div>
