@@ -144,7 +144,7 @@ html, body{
   margin: 0;
   height: 100%;
 	font-family:"Lato", "Helvetica Neue","Open Sans", Arial, sans-serif;
-	@extend .flex,.layout-column;
+	@extend .flex;
 }
 body{
   @extend .background-color-grey, .layout-column;
