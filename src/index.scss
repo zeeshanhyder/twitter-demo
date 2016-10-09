@@ -143,13 +143,11 @@ $theme-blue: #55acee;
 html, body{
   margin: 0;
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
-	width:100%;
-	@extend .flex;
+	font-family:"Lato", "Helvetica Neue","Open Sans", Arial, sans-serif;
+	@extend .flex,.layout-column;
 }
 body{
   @extend .background-color-grey, .layout-column;
-	font-family:"Lato", "Helvetica Neue","Open Sans", Arial, sans-serif;
 }
 p{
 	color: $text-color-2;
