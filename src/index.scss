@@ -144,9 +144,10 @@ html, body{
   margin: 0;
   height: 100%;
   font-family: 'Open Sans', sans-serif;
+	@extend .flex;
 }
 body{
-  @extend .flex,.background-color-grey;
+  @extend .background-color-grey, .layout-column;
 	font-family:"Lato", "Helvetica Neue","Open Sans", Arial, sans-serif;
 }
 p{
@@ -208,7 +209,7 @@ p{
   border-color: $theme-blue;
 }
 .logo{
-  background:url('app/assets/logo.png');
+  background:url('assets/logo.png');
   width: 28px;
   height: 28px;
   margin-left: 0.625em;
@@ -264,7 +265,7 @@ p{
 	}
 }
 .profile--img{
-	background: url('app/assets/profile-img.png');
+	background: url('assets/profile-img.png');
 	background-position: center;
 }
 .profile-stats{
@@ -325,6 +326,8 @@ p{
 	}
 	.main-search{
 		flex-grow: 1;
+		max-width: 50%;
+
 	}
 	.menu--mobile{
 		display: flex;

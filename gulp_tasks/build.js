@@ -16,7 +16,7 @@ const conf = require('../conf/gulp.conf');
 gulp.task('build', build);
 
 function build() {
-  const partialsInjectFile = gulp.src(conf.path.tmp('templateCacheHtml.js'), {read: false});
+  const partialsInjectFile = gulp.src(conf.path.tmp('templateCacheHtml.js'), {read: true});
   const partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: conf.paths.tmp,

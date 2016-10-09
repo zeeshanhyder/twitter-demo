@@ -10,8 +10,10 @@ const hub = new HubRegistry([conf.path.tasks('*.js')]);
 // Tell gulp to use the tasks just loaded
 gulp.registry(hub);
 
+
 gulp.task('inject', gulp.series(gulp.parallel('styles', 'scripts'), 'inject'));
-gulp.task('build', gulp.series('partials', gulp.parallel('inject', 'other'), 'build'));
+gulp.task('assets',assets);
+gulp.task('build', gulp.series('partials', gulp.parallel('inject', 'other'), 'build','assets'));
 gulp.task('test', gulp.series('scripts', 'karma:single-run'));
 gulp.task('test:auto', gulp.series('watch', 'karma:auto-run'));
 gulp.task('serve', gulp.series('inject', 'watch', 'browsersync'));
@@ -37,4 +39,10 @@ function watch(done) {
   ], gulp.series('styles'));
   gulp.watch(conf.path.src('**/*.js'), gulp.series('inject'));
   done();
+}
+
+function assets(done){
+  gulp.src(conf.path.src('assets/**/*.*'))
+  .pipe(gulp.dest(conf.path.dist('styles/assets')));
+    done();
 }
